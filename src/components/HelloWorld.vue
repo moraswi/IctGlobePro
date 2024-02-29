@@ -1,6 +1,5 @@
 <template>
   <div >
-    <!-- <v-card v-for="post in posts" :key="post.id" > -->
       <p>title{{post.title}}</p>
       <p>body{{post.body}}</p>
       <p>userId{{post.userId}}</p>
@@ -16,9 +15,7 @@ export default {
 
   data() {
       return {
-
         post:[],
-       
       };
     },
 
@@ -30,9 +27,7 @@ export default {
         const  id = this.$route.params.id;
       this.fatchData(id);
     },
-
     methods: {
-      
       fatchData(postId){
            
         axios.get(`https://jsonplaceholder.typicode.com/posts/${postId}`).
@@ -43,13 +38,8 @@ export default {
               }).catch(error => {
               console.log('you got error', error);
             })
-
         }
-
     },
-
-
-
 }
 </script>
 
