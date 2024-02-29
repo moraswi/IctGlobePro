@@ -1,8 +1,6 @@
 <template>
     <div >
         <h1>ICT Globe</h1>
-
-    
         <v-card v-for="post in posts" :key="post.id" @click="navigateToPost(post.id)" >
           <p>title{{post.title}}</p>
           <p>body{{post.body}}</p>
@@ -23,21 +21,14 @@ import axios from 'axios';
       };
     },
 
-    // async created() {
-    //   await this.$store.dispatch("dataModules/fatchDataReq");
-    // },
-
     mounted(){
       this.fatchData();
     },
 
-    computed: {
-      
-    },
-
     methods: {
-      fatchData(){
 
+      // fatchData
+      fatchData(){
       axios.get('https://jsonplaceholder.typicode.com/posts').
       then(response => {
         // this.users = response.data;
@@ -45,11 +36,8 @@ import axios from 'axios';
         this.posts = response.data
       }).catch(error => {
         console.log('you got error', error);
-      })
+      })},
 
-      },
-
-      
       // navigateToPost
       navigateToPost(postId) {
       this.$router.push({ name: 'HomeView', params: { id: postId } });
